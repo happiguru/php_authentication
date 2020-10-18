@@ -17,6 +17,21 @@ class Account
 
   }
 
+	public function getId(): ?int
+	{
+		return $this->id;
+	}
+	
+	public function getName(): ?string
+	{
+		return $this->name;
+	}
+	
+	public function isAuthenticated(): bool
+	{
+		return $this->authenticated;
+	}
+
   public function addAccount(string $name, string $password): int
   {
     global $pdo;
@@ -24,12 +39,12 @@ class Account
     $name = trim($name);
     $password = trim($password);
 
-    if(!this->isNameValid($name))
-    {
-      throw new Exception('Invalid user name');
-    }
+    if (!$this->isNameValid($name))
+		{
+			throw new Exception('Invalid user name');
+		}
 
-    if(!this->isPasswordValid($password)){
+    if(!$this->isPasswordValid($password)){
       throw new Exception('Invalid password');
     }
 
@@ -104,10 +119,10 @@ class Account
     }
 
     $row = $res->fetch(PDO::FETCH_ASSOC);
-    if(is_array($row))
-    {
-      $id = intval($row['account_id']), 10);
-    }
+    if (is_array($row))
+		{
+			$id = intval($row['account_id'], 10);
+		}
     return $id;
   }
 

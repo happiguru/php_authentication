@@ -9,7 +9,7 @@ $pdo = NULL;
 
 // CONNECTION TO DATABASE
 
-$dsn = 'mysql:host=' . $host= . ';dbname=' . $schema;
+$dsn = 'mysql:host=' . $host . ';dbname=' . $schema;
 
 try {
   $pdo = new PDO($dsn, $user, $password);
